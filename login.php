@@ -19,8 +19,6 @@ echo $name." is gamed awyy";
 ?>
 
 </body>
-
-
-    
+  
 </body>
 </html>
