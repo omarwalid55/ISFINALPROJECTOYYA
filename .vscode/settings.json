@@ -1,0 +1,10 @@
+{
+    // Enable/disable built-in PHP validation.
+    "php.validate.enable": true,
+     // Points to the PHP executable 
+     "php.validate.run" : "onSave",
+
+    // Points to the PHP executable 
+    "php.validate.executablePath": "c:documents/"
+
+}
