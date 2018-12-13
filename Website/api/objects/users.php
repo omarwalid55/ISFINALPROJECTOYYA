@@ -63,7 +63,7 @@ function create(){
 function emailExists(){
  
     // query to check if email exists
-    $query = "SELECT name, username, type, password
+    $query = "SELECT  name, username, password, type
             FROM " . $this->table_name . "
             WHERE email = ?
             LIMIT 0,1";
@@ -102,6 +102,6 @@ function emailExists(){
     // return false if email does not exist in the database
     return false;
 }
+} 
 
-}
  
