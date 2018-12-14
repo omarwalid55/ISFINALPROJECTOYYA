@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+    <link href="https://fonts.googleapis.com/css?family=Jolly+Lodger" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="hogwarts-background">
+        <div id="form-wrapper2">
+<div class="container">
 <?php 
   session_start(); 
 
@@ -11,17 +22,10 @@
   	header("location: login.php");
   }
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Home</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
 
-<div class="header">
-	<h2>Home Page</h2>
-</div>
+
+	<h1 style="font-family: Jolly Lodger;" align="center" > <font color="White">Home Page </font></h1>
+
 <div class="content">
   	<!-- notification message -->
   	<?php if (isset($_SESSION['success'])) : ?>
@@ -37,10 +41,15 @@
 
     <!-- logged in user information -->
     <?php  if (isset($_SESSION['username'])) : ?>
-    	<p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
-    	<p> <a href="index.php?logout='1'" style="color: red;">logout</a> </p>
+    	<p style="font-size:30px; font-family: Jolly Lodger;" align="center"> <font color="White">
+			Welcome <strong><?php echo $_SESSION['username']; ?></strong> </font></p>
+    	<p style="font-size:30px; font-family: Jolly Lodger;" align="center"> <a href="index.php?logout='1'" style="color: red;">logout</a> </p>
     <?php endif ?>
-</div>
+	</div>
+	</div>
+	</div>
+	</div>
+
 		
 </body>
 </html>
