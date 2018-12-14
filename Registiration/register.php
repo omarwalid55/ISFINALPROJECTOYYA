@@ -37,8 +37,14 @@
             <input type="password" placeholder="Enter Password" name="password_2" required>
         
     </br>
-            <label for="type"><b>Type</b></label>
-            <input type="text" placeholder="Enter type" name="type" required>
+						<label for="type"><b>Type</b></label>
+						<input list=type placeholder="Enter Type" name="type" required style="width:50%">
+            <datalist id="type">
+							<option value="Student">
+							<option value="Teacher Assistant">
+							<option value="Lecturer">
+							
+						</datalist>
         </br>
     </br>
             <hr>
