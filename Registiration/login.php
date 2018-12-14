@@ -28,7 +28,15 @@
   		<input type="password" name="password">
 		</div>
 		</br>
-</br>
+
+<label for="type"><b>Type</b></label>
+						<input list=type placeholder="Enter Type" name="type" required style="width:50%">
+            <datalist id="type">
+							<option value="Student">
+							<option value="Teacher Assistant">
+							<option value="Lecturer">
+							
+						</datalist>
   	<div class="input-group">
   		<button type="submit" class="btn" name="login_user">Login</button>
   	</div>
