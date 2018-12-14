@@ -52,7 +52,7 @@ if (isset($_POST['reg_user'])) {
 
   // Finally, register user if there are no errors in the form
   if (count($errors) == 0) {
-  	$password = password_hash($password_1);//encrypt the password before saving in the database
+  	$password = password_hash($password_1, PASSWORD_DEFAULT);//encrypt the password before saving in the database
 
   	$query = "INSERT INTO users (name,username, email, password,type) 
           VALUES('$name','$username', '$email', '$password','$type')";
@@ -81,14 +81,29 @@ if (isset($_POST['login_user'])) {
     }
   
     if (count($errors) == 0) {
-      $password = password_hash($password);
-        $query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
+      $password = password_hash($password, PASSWORD_DEFAULT);
         
+        $query = "SELECT password FROM users WHERE username='$username'";
+        // echo($password);
+        // $res = password_verify("1234", $query);
+        // echo($query);
+
         $results = mysqli_query($db, $query);
-        if (mysqli_num_rows($results) == 1) {
+
+        while ($row = $results->fetch_assoc()) {
+          $password = $row['password'];
+          // echo($password);
+      }
+
+      $res = password_verify("hady", $password);
+      if($res)
+        echo("hi");
+      else
+        echo("no");
+      if (mysqli_num_rows($results) == 1) {
           $_SESSION['username'] = $username;
           $_SESSION['success'] = "You are now logged in";
-          header('location: student.php');
+          
         }else {
             array_push($errors, "Wrong username/password combination");
         }
