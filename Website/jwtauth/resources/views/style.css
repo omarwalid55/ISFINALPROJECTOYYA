@@ -1,0 +1,69 @@
+
+html, body{
+    height: 100%;
+    margin: 0px;
+  }
+  #hogwarts-background{
+    width: 100%;
+    height: 100%;
+    background-image: url("images/school.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+  }
+  #form-wrapper{
+    width:90%;
+    max-width: 500px;
+    height: 500px;
+    margin:auto;
+    background-color: rgba(0,0,0,0.6);
+  }
+  #form-wrapper > form{
+    color: white;
+    padding: 40px;
+  }
+  #form-wrapper > form{
+    color:white;
+    padding: 40px;
+    font-family: 'Jolly Lodger';
+    font-size: 18px;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+  #form-wrapper > form > input, select{
+    font-family: 'Jolly Lodger';
+    font-size: 18px;
+    letter-spacing: 1px;
+    padding:0px 6px;
+    background-color: rgba(0,0,0,0.4);
+    border: 1px solid white;
+    color: #fff;
+    
+  }
+  #form-wrapper > form > input[type="submit"]{
+    width:160px;
+    display: block;
+    margin:0px auto;
+    font-size: 26px;
+  }
+  /* Set a style for the submit button */
+.registerbtn {
+  background-color: rgb(255, 255, 255);
+  color: rgb(12, 11, 11);
+  padding: 10px 10px;
+  margin: 0px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 50%;
+  padding: 5px;
+  margin: 5px 0 0px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
