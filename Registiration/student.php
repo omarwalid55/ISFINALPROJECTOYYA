@@ -43,7 +43,7 @@
     <?php  if (isset($_SESSION['username'])) : ?>
     	<p style="font-size:30px; font-family: Jolly Lodger;" align="center"> <font color="White">
 			Welcome <strong><?php echo $_SESSION['username']; ?></strong> </font></p>
-    	<p style="font-size:30px; font-family: Jolly Lodger;" align="center"> <a href="student.php?logout='1'" style="color: red;">logout</a> </p>
+    	<p style="font-size:30px; font-family: Jolly Lodger;" align="center"> <a href="login.php?logout='1'" style="color: red;">logout</a> </p>
     <?php endif ?>
 	</div>
 	</div>
