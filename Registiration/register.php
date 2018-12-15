@@ -41,7 +41,7 @@
 						<input list=type placeholder="Enter Type" name="type" required style="width:50%">
             <datalist id="type">
 							<option value="Student">
-							<option value="Teacher Assistant">
+							<option value="TA">
 							<option value="Lecturer">
 							
 						</datalist>
