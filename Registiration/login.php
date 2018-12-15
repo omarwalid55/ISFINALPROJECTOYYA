@@ -9,7 +9,7 @@
 <body>
 <body>
     <div id="hogwarts-background">
-        <div id="form-wrapper2">
+        <div id="form-wrapper">
        
 				
 	 
@@ -38,6 +38,7 @@
 							
 						</datalist>
   	<div class="input-group">
+</br>
   		<button type="submit" class="btn" name="login_user">Login</button>
   	</div>
   	<p>

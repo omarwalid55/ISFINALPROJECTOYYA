@@ -7,7 +7,7 @@
 </head>
 <body>
 <div id="hogwarts-background">
-        <div id="form-wrapper2">
+        <div id="form-wrapper">
 <div class="container">
 
 

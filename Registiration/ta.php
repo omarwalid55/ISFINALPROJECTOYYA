@@ -7,24 +7,13 @@
 </head>
 <body>
 <div id="hogwarts-background">
-        <div id="form-wrapper2">
+        <div id="form-wrapper">
 <div class="container">
-<?php 
-  session_start(); 
-
-  if (!isset($_SESSION['username'])) {
-  	$_SESSION['msg'] = "You must log in first";
-  	header('location: login.php');
-  }
-  if (isset($_GET['logout'])) {
-  	session_destroy();
-  	unset($_SESSION['username']);
-  	header("location: login.php");
-  }
-?>
 
 
-	<h1 style="font-family: Jolly Lodger;" align="center" > <font color="White">Home Page </font></h1>
+
+	<h1 style="font-family: Jolly Lodger;" align="center" > <font color="White"> List of All Students </font></h1>
+
 
 <div class="content">
   	<!-- notification message -->
@@ -45,11 +34,46 @@
 			Welcome <strong><?php echo $_SESSION['username']; ?></strong> </font></p>
     	<p style="font-size:30px; font-family: Jolly Lodger;" align="center"> <a href="login.php?logout='1'" style="color: red;">logout</a> </p>
     <?php endif ?>
+
+	<?php
+include('server.php');
+
+$_SESSION ['username']= $username;
+if ($result = $db->query("SELECT * FROM students"))
+{
+if ($result->num_rows > 0)
+{
+	
+echo "<table align= 'center' border='1' cellpadding='10'>";
+echo "<tr style='color:#ffffff' ><th>Usernames</th><th>Grades</th></tr>";
+while ($row = $result->fetch_object())
+{
+echo "<tr>";
+echo '<td style="color:#ffffff">' . $row->username . "</td>";
+echo '<td style="color:#ffffff">' . $row->grades . "</td>";
+echo "</tr>";
+}
+
+echo "</table>";
+}
+else
+{
+echo "No results to display!";
+}
+}
+else
+{
+echo "Error: " . $db->error;
+}
+
+$db->close();
+?> 
+<p style="font-size:30px; font-family: Jolly Lodger;" align="center"> <a href="login.php?logout='1'" style="color: red;">logout</a> </p>
+
 	</div>
 	</div>
 	</div>
 	</div>
 
-		
 </body>
 </html>
