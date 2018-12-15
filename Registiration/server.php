@@ -51,10 +51,10 @@ if (isset($_POST['reg_user'])) {
   }
 // Finally, register user if there are no errors in the form
 if (count($errors) == 0) {
-  $password_in = password_hash($password_1, PASSWORD_DEFAULT);//encrypt the password before saving in the database
-  
+  //$password_in = password_hash($password_1, PASSWORD_DEFAULT);//encrypt the password before saving in the database
+  $password = md5($password_1);
   $query = "INSERT INTO users (name,username, email, password,type) 
-        VALUES('$name','$username', '$email', '$password_in','$type')";
+        VALUES('$name','$username', '$email', '$password','$type')";
         
   mysqli_query($db, $query);
   $_SESSION['username'] = $username;
@@ -81,46 +81,52 @@ if (isset($_POST['login_user'])) {
   if (empty($type)) {
     array_push($errors, "Type is required");
 }
-if ($type === "Student"){
-  header('location: student.php');}
- else if ($type === "Teacher Assistant"){
-    header('location: ta.php');}
-   else if ($type === "Lecturer"){
-      header('location: lecturer.php');}
-
   if (count($errors) == 0) {
     // $password = password_hash($password, PASSWORD_DEFAULT);
       // echo($password);
-      $query = "SELECT * FROM users WHERE username='$username' and type='$type'";
+      //$query = "SELECT * FROM users WHERE username='$username' and type='$type'";
       // echo($password);
       // $res = password_verify("1234", $query);
       // echo($query);
+      $password = md5($password);
+      $query = "SELECT password FROM users WHERE username='$username'";
+      //$results = mysqli_query($db, $query);
+     $results = mysqli_query($db, $query);
+     //$query2=mysqli_query($db, $query);
+    // $result =mysqli_store_result($results);
+      //$password2 = mysqli_use_result($);
+    // echo $password2 ;
+    $password2 = mysqli_fetch_assoc($results);
 
-      $results = mysqli_query($db, $query);
-
-      while ($row = $results->fetch_assoc()) {
-        $password_hashed = $row['password'];
-        // echo($password);
-    }
-// $2y$10$6GC.tZSHH.aBIAwzZ3
-
+//       while ($row = $results->fetch_assoc()) {
+//         $password_hashed = $row['password'];
+//         // echo($password);
+// // $2y$10$6GC.tZSHH.aBIAwzZ3
+//       }
     // echo($password_hashed);
-    $res = password_verify($password ,$password_hashed);
-    
-    if ($res) {
+  //$res = password_verify($password ,$password_hashed);
+
+    if ($password2['password'] === $password && $type === "Student") {
         $_SESSION['username'] = $username;
         $_SESSION['success'] = "You are now logged in";
-        $type = "";
-        while ($row = $results->fetch_assoc()) {
-          $type = $row['type'];
-          echo($type);
-      }
-     
+        header('location: student.php') ;
         echo("you are in");
-        
-      }else {
-          array_push($errors, "Wrong username/password combination");
-      }
-  }
+    }
+if($password2['password'] === $password && $type=== "Lecturer"){
+        $_SESSION['username'] = $username;
+        $_SESSION['success'] = "You are now logged in";
+        header('location: lecturer.php') ;
+        echo("you are in"); 
 }
+if($password2['password'] === $password && $type=== "Teaching assistant"){
+  $_SESSION['username'] = $username;
+  $_SESSION['success'] = "You are now logged in";
+  header('location: ta.php');
+  echo("you are in"); 
+}
+  else {
+          array_push($errors, "Wrong username/password and type combination");
+      }
+    }
+  }
   ?>
