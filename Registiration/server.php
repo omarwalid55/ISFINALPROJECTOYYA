@@ -56,19 +56,20 @@ if (count($errors) == 0) {
   $password = md5($password_1);
   $query = "INSERT INTO users (name,username, email, password,type) 
         VALUES('$name','$username', '$email', '$password','$type')";
-     $query2 = "INSERT INTO students (username, grades) 
-     VALUES('$username', '$grade' )";
+     
      
         
   mysqli_query($db, $query);
   if ($type === "Student"){
+    $query2 = "INSERT INTO students (username, grades) 
+     VALUES('$username', '$grade' )";
     mysqli_query($db, $query2);
    }
   $_SESSION['username'] = $username;
   $_SESSION['success'] = "You are now logged in";
   if ($type === "Student"){
   header('location: student.php');}
- else if ($type === "Teacher Assistant"){
+ else if ($type === "TA"){
     header('location: ta.php');}
    else if ($type === "Lecturer"){
       header('location: lecturer.php');}
@@ -122,7 +123,7 @@ if (isset($_POST['login_user'])) {
         if ($type === $type_12['type'] && $type == 'Student'){
           header('location: student.php');
           echo("you are in");}
-         else if ($type === $type_12['type'] && $type == 'TAs'){
+         else if ($type === $type_12['type'] && $type == 'TA'){
             header('location: ta.php');
             echo("you are in");
           }
