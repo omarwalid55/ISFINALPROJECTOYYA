@@ -4,12 +4,12 @@
 <head>
 	<title>Registration system PHP and MySQL</title>
 	<link href="https://fonts.googleapis.com/css?family=Jolly+Lodger" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="login.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 <body>
     <div id="hogwarts-background">
-        <div id="form-wrapper">
+        <div id="form-wrapper2">
        
 				
 	 
