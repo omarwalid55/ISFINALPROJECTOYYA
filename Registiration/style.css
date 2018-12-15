@@ -12,11 +12,14 @@ html, body{
   display: flex;
 }
 
+
+
 #form-wrapper{
   width:90%;
   max-width: auto;
   height: auto;
   margin:auto;
+  
   background-color: rgba(0,0,0,0.6);
 }
 #form-wrapper > form{
@@ -60,8 +63,8 @@ width: 100%;
 opacity: 0.9;
 }
 /* Full-width input fields */
-input[type=text], input[type=password] {
-width: 50%;
+input[type=text], input[type=password], input[list=type] {
+width: auto;
 padding: 5px;
 margin: 5px 0 0px 0;
 display: inline-block;
@@ -70,7 +73,7 @@ background: #f1f1f1;
 }
 
 #form-wrapper2{
-  width:90%;
+  width:auto;
   max-width: 500px;
   height: 500px;
   margin:auto;

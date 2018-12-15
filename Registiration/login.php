@@ -16,6 +16,7 @@
   <form method="post" action="login.php">
   	<?php include('errors.php'); ?>
   	<div class=class="container">
+	  <h2>Welcome to Hogwarts </h2>
 			<p style="font-size:20px;"><font color="Red"> Please Insert Username & Password </font></p>
   		<label>Username</label>
 			<input type="text" name="username" >
@@ -30,7 +31,8 @@
 		</br>
 
 <label for="type"><b>Type</b></label>
-						<input list=type placeholder="Enter Type" name="type" required style="width:50%">
+
+						<input list=type placeholder="Enter Type" name="type" required style="width:12.5%">
             <datalist id="type">
 							<option value="Student">
 							<option value="TA">

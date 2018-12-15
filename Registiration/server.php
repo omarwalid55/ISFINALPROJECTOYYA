@@ -137,4 +137,12 @@ if (isset($_POST['login_user'])) {
     }
   }
 }
+if (isset($_POST['Update_grade'])) {
+  $username = mysqli_real_escape_string($db, $_POST['username']);
+  $grade = mysqli_real_escape_string($db, $_POST['grades']);
+  $update_grade = "UPDATE students SET grades= $grade WHERE username='$username'";
+  $result = mysqli_query($db, $update_grade);
+}
+
+
   ?>

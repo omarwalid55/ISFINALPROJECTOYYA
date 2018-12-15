@@ -14,31 +14,33 @@
         <form action="register.php" method ="post">
           <div class="container">
             <h2>Welcome to the school of Hogwarts</h2>
-            <p>Please fill in this form to create an account.</p>
+            <p style="font-size:20px;"><font color="Red">Please fill in this form to create an account. </font></p>
             <hr>
         
             <label for="name"><b>Name</b></label>
-            <input type="text" placeholder="Enter Name" name="name" required>
+            <input type="text" placeholder="Enter Name" name="name" required style="width:20%" required>
+          </br>
           </br>
         
             <label for="Email"><b>Email</b></label>
-            <input type="text" placeholder="Enter email" name="email" required>
-        
+            <input type="text" placeholder="Enter email" name="email" required style="width:20%" required>
+            </br>
     </br>
             <label for="name"><b>Username</b></label>
-            <input type="text" placeholder="Enter username" name="username" required>
-        
+            <input type="text" placeholder="Enter username" name="username" required style="width:17.5%" required>
+            </br>
     </br>
             <label for="password"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="password_1" required>
-				</br>
+            <input type="password" placeholder="Enter Password" name="password_1"  required style="width:17.5%"required>
+        </br>
+        </br>
 				
 				<label for="password"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="password_2" required>
-        
+            <input type="password" placeholder="Enter Password" name="password_2" required style="width:17.5%"   required>
+            </br>
     </br>
 						<label for="type"><b>Type</b></label>
-						<input list=type placeholder="Enter Type" name="type" required style="width:50%">
+						<input list=type placeholder="Enter Type" name="type" required style="width:20%">
             <datalist id="type">
 							<option value="Student">
 							<option value="TA">
