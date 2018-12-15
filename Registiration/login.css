@@ -15,7 +15,7 @@ html, body{
   #form-wrapper{
     width:90%;
     max-width: 500px;
-    height: 600px;
+    height: 300px;
     margin:auto;
     background-color: rgba(0,0,0,0.6);
   }

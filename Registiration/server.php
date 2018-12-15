@@ -6,6 +6,7 @@ $name ="";
 $username = "";
 $email    = "";
 $type="";
+$grade="";
 $errors = array(); 
 
 // connect to the database
@@ -20,7 +21,7 @@ if (isset($_POST['reg_user'])) {
   $password_1 = mysqli_real_escape_string($db, $_POST['password_1']);
   $password_2 = mysqli_real_escape_string($db, $_POST['password_2']);
   $type = mysqli_real_escape_string($db, $_POST['type']);
-
+  $grade = mysqli_real_escape_string($db, $_POST['']);
 
   // form validation: ensure that the form is correctly filled ...
   // by adding (array_push()) corresponding error unto $errors array
@@ -55,8 +56,14 @@ if (count($errors) == 0) {
   $password = md5($password_1);
   $query = "INSERT INTO users (name,username, email, password,type) 
         VALUES('$name','$username', '$email', '$password','$type')";
+     $query2 = "INSERT INTO students (username, grades) 
+     VALUES('$username', '$grade' )";
+     
         
   mysqli_query($db, $query);
+  if ($type === "Student"){
+    mysqli_query($db, $query2);
+   }
   $_SESSION['username'] = $username;
   $_SESSION['success'] = "You are now logged in";
   if ($type === "Student"){
@@ -112,13 +119,13 @@ if (isset($_POST['login_user'])) {
         header('location: student.php') ;
         echo("you are in");
     }
-if($password2['password'] === $password && $type=== "Lecturer"){
+ else if($password2['password'] === $password && $type=== "Lecturer"){
         $_SESSION['username'] = $username;
         $_SESSION['success'] = "You are now logged in";
         header('location: lecturer.php') ;
         echo("you are in"); 
 }
-if($password2['password'] === $password && $type=== "Teaching assistant"){
+ else if($password2['password'] === $password && $type=== "Teacher Assistant"){
   $_SESSION['username'] = $username;
   $_SESSION['success'] = "You are now logged in";
   header('location: ta.php');
